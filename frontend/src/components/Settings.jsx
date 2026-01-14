@@ -25,7 +25,7 @@ const Settings = () => {
   const token = localStorage.getItem("token");
 
   // Update name & email
-  const res = await fetch("http://localhost:5000/api/user/update", {
+  const res = await fetch("https://usermanagementsystem-production-8e73.up.railway.app/api/user/update", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const Settings = () => {
     const formData = new FormData();
     formData.append("image", file);
 
-    const imgRes = await fetch("http://localhost:5000/api/user/upload-avatar", {
+    const imgRes = await fetch("https://usermanagementsystem-production-8e73.up.railway.app/api/user/upload-avatar", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -65,7 +65,7 @@ const Settings = () => {
 
   const handlePasswordChange = async () => {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/user/change-password", {
+    const res = await fetch("https://usermanagementsystem-production-8e73.up.railway.app/api/user/change-password", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const Settings = () => {
 
 {avatar && (
   <img
-    src={`http://localhost:5000${avatar}`}
+    src={`https://usermanagementsystem-production-8e73.up.railway.app${avatar}`}
     alt="Profile"
     className="profile-preview"
   />

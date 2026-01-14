@@ -34,7 +34,7 @@ const Dashboard = () => {
     const token = localStorage.getItem("token");
     if (!token) return navigate("/login");
 
-    fetch("http://localhost:5000/api/user/me", {
+    fetch("https://usermanagementsystem-production-8e73.up.railway.app/api/user/me", {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((r) => r.json())
@@ -46,7 +46,7 @@ const Dashboard = () => {
   }, [navigate]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard/activity", {
+    fetch("https://usermanagementsystem-production-8e73.up.railway.appapi/dashboard/activity", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => r.json())
@@ -61,7 +61,7 @@ const Dashboard = () => {
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/dashboard/activity", {
+    fetch("https://usermanagementsystem-production-8e73.up.railway.app/api/dashboard/activity", {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     })
       .then((r) => r.json())
