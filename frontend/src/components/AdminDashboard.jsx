@@ -27,9 +27,11 @@ const AdminDashboard = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/admin/users', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const res = await axios.get(
+  'https://usermanagementsystem-production-8e73.up.railway.app/api/admin/users',
+  { headers: { Authorization: `Bearer ${token}` } }
+);
+
       setUsers(res.data.users);
       setFilteredUsers(res.data.users);
       setLoading(false);
@@ -64,11 +66,12 @@ const AdminDashboard = () => {
   const handleBlock = async (userId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(
-        `http://localhost:5000/api/admin/block/${userId}`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+     await axios.put(
+  `https://usermanagementsystem-production-8e73.up.railway.app/api/admin/block/${userId}`,
+  {},
+  { headers: { Authorization: `Bearer ${token}` } }
+);
+
       fetchUsers();
     } catch (err) {
       alert('Failed to block/unblock user');
@@ -79,10 +82,11 @@ const AdminDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5000/api/admin/promote/${userId}`,
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+  `https://usermanagementsystem-production-8e73.up.railway.app/api/admin/promote/${userId}`,
+  {},
+  { headers: { Authorization: `Bearer ${token}` } }
+);
+
       fetchUsers();
     } catch (err) {
       alert('Failed to promote user');
@@ -93,9 +97,11 @@ const AdminDashboard = () => {
     if (window.confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/admin/delete/${userId}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+       await axios.delete(
+  `https://usermanagementsystem-production-8e73.up.railway.app/api/admin/delete/${userId}`,
+  { headers: { Authorization: `Bearer ${token}` } }
+);
+
         fetchUsers();
         setShowUserModal(false);
       } catch (err) {
