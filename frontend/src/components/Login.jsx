@@ -28,7 +28,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/auth/login',
+        'https://usermanagementsystem-production-8e73.up.railway.app/api/auth/login',
         formData
       );
 
