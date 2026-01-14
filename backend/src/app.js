@@ -3,6 +3,7 @@
  */
 
 const express = require('express');
+app.set("trust proxy", 1);
 const cors = require('cors');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -27,7 +28,13 @@ app.use(xss());
 app.use(hpp());
 
 // CORS
-app.use(cors());
+pp.use(cors({
+  origin: [
+    "https://user-management-system-silk-mu.vercel.app",
+    "http://localhost:3000"
+  ],
+  credentials: true
+}));
 
 // Body Parser
 app.use(express.json());
